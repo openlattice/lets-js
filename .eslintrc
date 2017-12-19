@@ -80,7 +80,6 @@
         "groups": ["builtin", "external", "internal", ["sibling", "parent"], "index"]
       }
     ],
-
     "import/prefer-default-export": "warn",
 
     "jest/no-disabled-tests": "error",
