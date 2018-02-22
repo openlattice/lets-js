@@ -6,9 +6,7 @@
 declare var __VERSION__ :string;
 const version :string = __VERSION__;
 
-export {
-  version
-};
+export { version };
 
 export default {
   version
