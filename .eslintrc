@@ -26,7 +26,7 @@
   "rules": {
     "arrow-body-style": ["error", "as-needed"],
     "brace-style": ["error", "stroustrup"],
-    "comma-dangle": ["error", "never"],
+    "comma-dangle": ["error", "only-multiline"],
     "function-paren-newline": ["error", "consistent"],
     "indent": [
       "error",
