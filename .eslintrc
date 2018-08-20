@@ -63,11 +63,20 @@
           "Immutable.Map",
           "Immutable.OrderedMap",
           "Immutable.Set",
-          "Immutable.OrderedSet"
+          "Immutable.OrderedSet",
+          "List",
+          "OrderedList",
+          "Map",
+          "OrderedMap",
+          "Set",
+          "OrderedSet",
+          "SortableContainer",
+          "SortableElement"
         ]
       }
     ],
     "padded-blocks": "off",
+    "prefer-destructuring": "warn",
     "space-before-function-paren": ["error", "never"],
 
     "flowtype/define-flow-type": "error",
@@ -75,6 +84,15 @@
     "flowtype/space-before-type-colon": ["error", "always"],
     "flowtype/no-types-missing-file-annotation": "warn",
 
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "config/**",
+          "**/*.test.js"
+        ]
+      }
+    ],
     "import/order": [
       "warn",
       {
