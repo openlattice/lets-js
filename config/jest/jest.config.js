@@ -9,5 +9,6 @@ module.exports = {
   globals: {
     __VERSION__: PACKAGE.version
   },
-  rootDir: '../..'
+  rootDir: '../..',
+  testURL: 'http://localhost',
 };
