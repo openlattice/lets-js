@@ -1,14 +1,30 @@
 const PACKAGE = require('../../package.json');
 
 module.exports = {
-  coveragePathIgnorePatterns: [
-    '<rootDir>/src/utils/invalid.js'
+  collectCoverage: true,
+  collectCoverageFrom: [
+    '**/src/**/*.js',
   ],
   coverageDirectory: '<rootDir>/coverage',
-  collectCoverage: true,
+  coveragePathIgnorePatterns: [
+    '<rootDir>/build/',
+    '<rootDir>/config/',
+    '<rootDir>/flow-typed/',
+    '<rootDir>/src/utils/invalid.js',
+  ],
   globals: {
-    __VERSION__: PACKAGE.version
+    __ENV_DEV__: false,
+    __ENV_PROD__: false,
+    __PACKAGE__: PACKAGE.name,
+    __VERSION__: PACKAGE.version,
   },
+  modulePathIgnorePatterns: [
+    '<rootDir>/build/',
+    '<rootDir>/flow-typed/',
+  ],
   rootDir: '../..',
   testURL: 'http://localhost',
+  transform: {
+    '^.+\\.jsx?$': '<rootDir>/config/jest/babelJestTransformer.js',
+  },
 };

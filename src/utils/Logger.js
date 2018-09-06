@@ -2,30 +2,31 @@
  * @flow
  */
 
-import log from 'loglevel';
-import moment from 'moment';
-
 import isEmpty from 'lodash/isEmpty';
 import isError from 'lodash/isError';
 import isString from 'lodash/isString';
+import log from 'loglevel';
+import moment from 'moment';
 
-declare var __DEV__;
-declare var __TEST__;
+// injected by Webpack.DefinePlugin
+declare var __ENV_DEV__ :boolean;
+declare var __ENV_PROD__ :boolean;
+declare var __PACKAGE__ :string;
 
 const LOG_LEVELS = {
   TRACE: 'trace',
   DEBUG: 'debug',
   INFO: 'info',
   WARN: 'warn',
-  ERROR: 'error'
+  ERROR: 'error',
 };
 
 const TIMESTAMP_FORMAT = 'YYYY-MM-DD HH:mm:ss';
 
-if (__DEV__) {
+if (__ENV_DEV__) {
   log.setLevel(log.levels.TRACE);
 }
-else if (__TEST__) {
+else if (!__ENV_DEV__ && !__ENV_PROD__) {
   log.setLevel(log.levels.SILENT);
 }
 else {
@@ -37,20 +38,20 @@ function isNonEmptyString(value :any) {
   return isString(value) && !isEmpty(value);
 }
 
-function getMessagePrefix(loggerLevel, loggerName) {
+function getMessagePrefix(loggerLevel :string, loggerName :string) {
 
-  return `[${moment().format(TIMESTAMP_FORMAT)} ${loggerLevel.toUpperCase()} ${loggerName}]`;
+  return `[${moment().format(TIMESTAMP_FORMAT)} ${loggerLevel.toUpperCase()} ${__PACKAGE__}] ${loggerName}`;
 }
 
 export default class Logger {
 
-  name :string;
   logger :Object;
+  name :string;
 
   constructor(name :string) {
 
+    this.logger = log.getLogger(`${__PACKAGE__} : ${name}`);
     this.name = name;
-    this.logger = log.getLogger(name);
   }
 
   log(logLevel :string, message :any, ...args :any[]) {

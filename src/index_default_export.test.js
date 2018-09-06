@@ -2,12 +2,12 @@
 
 import PACKAGE from '../package.json';
 
-import LatticeSagas from './index';
+import Index from './index';
 
 describe('lets-js default export', () => {
 
   test('should export the correct version', () => {
-    expect(LatticeSagas.version).toEqual(PACKAGE.version);
+    expect(Index.version).toEqual(PACKAGE.version);
   });
 
 });
