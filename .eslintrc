@@ -7,7 +7,6 @@
   "env": {
     "browser": true,
     "jest": true,
-    "node": true
   },
   "plugins": [
     "flowtype",
@@ -89,6 +88,7 @@
       {
         "devDependencies": [
           "config/**",
+          "src/utils/testing/**",
           "**/*.test.js"
         ]
       }
