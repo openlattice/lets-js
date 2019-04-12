@@ -3,6 +3,7 @@ const PACKAGE = require('../../package.json');
 module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
+    '**/src/index.js',
     '**/src/**/*.js',
   ],
   coverageDirectory: '<rootDir>/coverage',
@@ -10,7 +11,7 @@ module.exports = {
     '<rootDir>/build/',
     '<rootDir>/config/',
     '<rootDir>/flow-typed/',
-    '<rootDir>/src/utils/invalid.js',
+    '<rootDir>/src/utils/Logger.js',
   ],
   globals: {
     __ENV_DEV__: false,
