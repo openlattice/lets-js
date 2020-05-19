@@ -1,15 +1,16 @@
 {
+  "env": {
+    "browser": true,
+    "jest": true
+  },
   "extends": [
     "airbnb-base",
     "plugin:flowtype/recommended"
   ],
   "parser": "babel-eslint",
-  "env": {
-    "browser": true,
-    "jest": true,
-  },
   "plugins": [
     "flowtype",
+    "import",
     "jest"
   ],
   "settings": {
@@ -23,7 +24,7 @@
     }
   },
   "rules": {
-    "arrow-body-style": ["error", "as-needed"],
+    "arrow-body-style": ["warn", "as-needed"],
     "brace-style": ["error", "stroustrup"],
     "comma-dangle": ["error", "only-multiline"],
     "function-paren-newline": ["error", "consistent"],
@@ -43,6 +44,7 @@
       }
     ],
     "lines-between-class-members": "off",
+    "max-classes-per-file": "off",
     "max-len": [
       "error",
       {
@@ -67,6 +69,7 @@
           "OrderedList",
           "Map",
           "OrderedMap",
+          "Seq",
           "Set",
           "OrderedSet",
           "SortableContainer",
@@ -76,11 +79,18 @@
     ],
     "padded-blocks": "off",
     "prefer-destructuring": "warn",
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
 
     "flowtype/define-flow-type": "error",
     "flowtype/space-after-type-colon": ["error", "never"],
-    "flowtype/space-before-type-colon": ["error", "always"],
+    "flowtype/space-before-type-colon": "off",
     "flowtype/no-types-missing-file-annotation": "warn",
 
     "import/no-extraneous-dependencies": [
@@ -96,7 +106,7 @@
     "import/order": [
       "warn",
       {
-        "groups": ["builtin", "external", "internal", ["sibling", "parent"], "index"]
+        "groups": ["builtin", "external", "internal", ["parent", "sibling"], "index"]
       }
     ],
     "import/prefer-default-export": "warn",
