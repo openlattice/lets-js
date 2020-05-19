@@ -16,7 +16,7 @@ module.exports = (env = {}) => {
   const BABEL_CONFIG = path.resolve(__dirname, '../babel/babel.config.js');
   const ENV_DEV = 'development';
   const ENV_PROD = 'production';
-  const LIB_FILE_NAME = '__CHANGE_ME__.js';
+  const LIB_FILE_NAME = 'index.js';
   const LIB_NAMESPACE = '__CHANGE_ME__';
 
   /*
