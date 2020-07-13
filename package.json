@@ -24,7 +24,7 @@
   "license": "Apache-2.0",
   "main": "build/index.js",
   "dependencies": {
-    "lodash": "~4.17.19"
+    "lodash": "~4.17.10"
   },
   "devDependencies": {
     "@babel/cli": "~7.10.4",
