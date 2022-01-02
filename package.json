@@ -54,7 +54,7 @@
     "rimraf": "~3.0.0",
     "webpack": "~4.44.1",
     "webpack-cli": "~3.3.0",
-    "webpack-dev-server": "~3.11.0"
+    "webpack-dev-server": "~4.7.2"
   },
   "peerDependencies": {
     "@babel/polyfill": "~7.8.0",
